@@ -23,7 +23,7 @@ public class EBookController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Path p = getFileOrDirectoryPath();
 		this.model.setPath(p);
-		this.model.readAllBooks();
+		this.model.readInAllBooks();
 	}
 	
 	
@@ -38,7 +38,7 @@ public class EBookController implements ActionListener{
     private Path getFileOrDirectoryPath() {
         // configure dialog allowing selection of a file or directory
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int result = fileChooser.showOpenDialog(this.view);
 
         // if user clicked Cancel button on dialog, return
