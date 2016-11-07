@@ -11,29 +11,36 @@ import view.EBookView;
 
 public class EBookController implements ActionListener{
 
-	EBookModel model;
-	EBookView view;
+	private EBookModel model;				// Model for the overall application
+	private EBookView view;					// View for the overall application
 	
 	public EBookController( EBookModel m, EBookView v ){
 		this.model = m;
 		this.view = v;
 	}
 
+	/**
+	 * User has clicked the only button on the main screen - choose a library directory.
+	 * Ask the model to read in files from the directory they choose & set up their library of books.
+	 * If successful, update the view to display their new library.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Path p = getFileOrDirectoryPath();
-		this.model.setPath(p);
-		this.model.readInAllBooks();
+		Path p = getFileOrDirectoryPath();				// Get path chosen by user
+		this.model.setPath(p);							// Update the model
+		this.model.readInAllBooks();					// Ask model to update data in this application
+		
+		// TODO: update the view once complete!
+		
 	}
 	
 	
 	
 	
 	/**
-     * allow user to specify file or directory name
-     * (copied from JFileChooserDemo.java)
+     * Allow user to specify a directory name (copied from JFileChooserDemo.java)
      * 
-     * @return
+     * @return Path to the chosen directory
      */
     private Path getFileOrDirectoryPath() {
         // configure dialog allowing selection of a file or directory
@@ -48,5 +55,4 @@ public class EBookController implements ActionListener{
         // return Path representing the selected file
         return fileChooser.getSelectedFile().toPath();
     }
-	
 }

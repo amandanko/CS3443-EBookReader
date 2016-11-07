@@ -51,7 +51,7 @@ public class EBookModel {
 			}
 			
 			// return a new Book object, if the Book class is able to parse the info
-			return Book.parse( firstLineOfFile, file );
+			return Book.parseBookInfo( firstLineOfFile, file );
 		}
 		return null;									// failed? return no books!
 	}
