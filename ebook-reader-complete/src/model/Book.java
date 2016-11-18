@@ -44,8 +44,10 @@ public class Book implements Comparable<Book>{
 			// trim out the "Project Gutenberg's "
 			firstLineOfGutenbergFile = firstLineOfGutenbergFile.substring(20);
 			String[] info = firstLineOfGutenbergFile.split(", by ");
-			title  = info[0];
-			author = info[1];
+			if( info!=null & info.length>=2 ){
+				title  = info[0];
+				author = info[1];
+			}
 		}
 		
 		return new Book( title, author, file );
@@ -64,7 +66,7 @@ public class Book implements Comparable<Book>{
 		
 		// Choose one of the following lines of code to sort your library!
 //		Arrays.sort( books );							// Comparable
-//		Arrays.sort( books, Book.BookComparator ); 		// Comparator
+		Arrays.sort( books, Book.BookComparator ); 		// Comparator
 		
 		for( Book b : books ){
 			System.out.println( b );

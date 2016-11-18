@@ -29,9 +29,7 @@ public class EBookController implements ActionListener{
 		Path p = getFileOrDirectoryPath();				// Get path chosen by user
 		this.model.setPath(p);							// Update the model
 		this.model.readInAllBooks();					// Ask model to update data in this application
-		
-		// TODO: update the view once complete!
-		
+		this.view.displayBooks();						// Update the view
 	}
 	
 	

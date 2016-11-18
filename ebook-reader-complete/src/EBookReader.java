@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 
+import controller.BookDisplayController;
 import controller.EBookController;
 import model.EBookModel;
 import view.EBookView;

@@ -6,6 +6,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,6 +35,19 @@ public class EBookModel {
 		
 		System.out.println("My Library contains:");				// print library info for debugging
 		System.out.println( books );
+	}
+	
+	
+	public Iterator<Book> getBooks(){
+		return this.books.iterator();
+	}
+	
+	
+	public Book getBook( String title ){
+		for( Book b : books )
+			if( b.toString().equals( title ) )
+				return b;
+		return null;
 	}
 	
 	
